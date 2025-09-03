@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coastal Candles Ltd - Premium Maritime Scented Candles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .products-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .product-image {
+            width: 200px;
+            height: 240px;
+            margin: 0 auto 1rem;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        
+        .candle-container {
+            position: relative;
+            width: 120px;
+            height: 200px;
+        }
+        
+        .candle-body {
+            width: 100%;
+            height: 160px;
+            border-radius: 8px 8px 60px 60px;
+            position: relative;
+            box-shadow: 
+                inset -10px 0 20px rgba(0,0,0,0.2),
+                inset 10px 0 20px rgba(255,255,255,0.3),
+                0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .candle-wick {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 15px;
+            background: #4a4a4a;
+            border-radius: 50% 50% 0 0;
+        }
+        
+        .candle-flame {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 20px;
+            background: radial-gradient(circle, #ffd700 20%, #ff6b35 60%, #ff4500 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flicker 2s ease-in-out infinite alternate;
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+        }
+        
+        .candle-wax-drip {
+            position: absolute;
+            width: 8px;
+            height: 20px;
+            border-radius: 0 0 50% 50%;
+            opacity: 0.7;
+        }
+        
+        .drip-1 {
+            top: 20px;
+            left: 10px;
+            transform: rotate(-5deg);
+        }
+        
+        .drip-2 {
+            top: 35px;
+            right: 15px;
+            transform: rotate(8deg);
+        }
+        
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1) rotate(-1deg); }
+            50% { transform: translateX(-50%) scale(1.05) rotate(1deg); }
+            100% { transform: translateX(-50%) scale(0.98) rotate(-0.5deg); }
+        }
+        
+        .maritime-breeze .candle-body {
+            background: linear-gradient(180deg, 
+                #27ae60 0%, 
+                #229954 30%, 
+                #1e8449 70%, 
+                #196f3d 100%);
+        }
+        
+        .maritime-breeze .candle-wax-drip {
+            background: linear-gradient(180deg, #27ae60, #229954);
+        }
+        
+        .harbor-lights .candle-body {
+            background: linear-gradient(180deg, 
+                #e74c3c 0%, 
+                #c0392b 30%, 
+                #a93226 70%, 
+                #922b21 100%);
+        }
+        
+        .harbor-lights .candle-wax-drip {
+            background: linear-gradient(180deg, #e74c3c, #c0392b);
+        }
+        
+        .maersk-special .candle-body {
+            background: linear-gradient(180deg, 
+                #00a8e6 0%, 
+                #0088cc 30%, 
+                #006bb3 70%, 
+                #004d99 100%);
+        }
+        
+        .maersk-special .candle-wax-drip {
+            background: linear-gradient(180deg, #00a8e6, #0088cc);
+        }
+        
+        .candle-label {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.9);
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            border-radius: 3px;
+            color: #333;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .product-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .product-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .btn {
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin: 0.5rem 0;
+        }
+        
+        /* Hidden intelligence in Maersk product - participants must inspect source */
+        .maersk-intelligence {
+            display: none;
+        }
+    </style>
+    <!-- COASTAL CANDLES LTD - ESTABLISHED 2018 -->
+    <!-- PREMIUM MARITIME SCENTED CANDLES FOR DISCERNING CUSTOMERS -->
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>🕯️ Coastal Candles Ltd</h1>
+            <p>Premium Maritime Scented Candles - Bringing the Ocean Home</p>
+        </div>
+    </header>
+
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Our Premium Collection</h2>
+            
+            <div class="products-grid">
+                <!-- Maritime Breeze Candle -->
+                <div class="product-card">
+                    <div class="product-image maritime-breeze">
+                        <div class="candle-container">
+                            <div class="candle-body">
+                                <div class="candle-wax-drip drip-1"></div>
+                                <div class="candle-wax-drip drip-2"></div>
+                                <div class="candle-label">Ocean</div>
+                            </div>
+                            <div class="candle-wick"></div>
+                            <div class="candle-flame"></div>
+                        </div>
+                    </div>
+                    <h3 class="product-name">Maritime Breeze</h3>
+                    <div class="product-price">£24.99</div>
+                    <div class="product-description">
+                        <p><strong>Scent Profile:</strong> Fresh sea air, salt spray, and coastal winds</p>
+                        <p><strong>Burn Time:</strong> 45 hours</p>
+                        <p><strong>Notes:</strong> Perfect for creating that seaside atmosphere in your home. Hand-poured with natural soy wax and cotton wicks.</p>
+                    </div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+
+                <!-- Harbor Lights Candle -->
+                <div class="product-card">
+                    <div class="product-image harbor-lights">
+                        <div class="candle-container">
+                            <div class="candle-body">
+                                <div class="candle-wax-drip drip-1"></div>
+                                <div class="candle-wax-drip drip-2"></div>
+                                <div class="candle-label">Harbour</div>
+                            </div>
+                            <div class="candle-wick"></div>
+                            <div class="candle-flame"></div>
+                        </div>
+                    </div>
+                    <h3 class="product-name">Harbor Lights</h3>
+                    <div class="product-price">£27.99</div>
+                    <div class="product-description">
+                        <p><strong>Scent Profile:</strong> Warm amber, driftwood, and evening mist</p>
+                        <p><strong>Burn Time:</strong> 50 hours</p>
+                        <p><strong>Notes:</strong> Evokes the romance of harbor lights reflecting on calm waters. Premium blend with wooden wick for authentic crackling sound.</p>
+                    </div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+
+                <!-- Maersk Candle - Contains Hidden Intelligence -->
+                <div class="product-card">
+                    <div class="product-image maersk-special">
+                        <div class="candle-container">
+                            <div class="candle-body">
+                                <div class="candle-wax-drip drip-1"></div>
+                                <div class="candle-wax-drip drip-2"></div>
+                                <div class="candle-label">Maersk</div>
+                            </div>
+                            <div class="candle-wick"></div>
+                            <div class="candle-flame"></div>
+                        </div>
+                    </div>
+                    <h3 class="product-name">Maersk Candle</h3>
+                    <div class="product-price">£32.99</div>
+                    <div class="product-description">
+                        <p><strong>Scent Profile:</strong> Ocean depths, steel, and adventure</p>
+                        <p><strong>Burn Time:</strong> 60 hours</p>
+                        <p><strong>Notes:</strong> Our premium maritime candle inspired by the world's largest shipping company. Crafted with precision and maritime heritage in mind.</p>
+                        <!-- HIDDEN INTELLIGENCE FOR OPERATION KRAKEN -->
+                        <!-- CIPHER KEY CLASSIFICATION: BLACK PEARL -->
+                        <!-- VESSEL IDENTIFICATION: PRIORITY ALPHA -->
+                        <div class="maersk-intelligence" data-operation="KRAKEN" data-key="BLACK PEARL" data-priority="ALPHA">
+                            Intelligence data embedded for authorised personnel
+                        </div>
+                    </div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Coastal Candles Ltd. All rights reserved.</p>
+            <p>Established 2018 | Premium Maritime Candles | UK Made</p>
+            <p>Customer Service: 0800-CANDLES | Email: info@coastalcandles.co.uk</p>
+            <p style="font-size: 0.8em; margin-top: 1rem; opacity: 0.7;">
+                For technical issues with our website, please inspect page source for diagnostic information
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
